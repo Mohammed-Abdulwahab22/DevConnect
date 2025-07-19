@@ -11,9 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->uuid('id')->primary(); 
+            $table->uuid('id')->primary();
             $table->string("content");
-            $table->foreign('user_id')->references('id')->on('users'); 
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->uuid('post_id');
             $table->foreign("post_id")->references('id')->on('posts');
             $table->timestamps();
         });
