@@ -12,10 +12,7 @@
     style="background-image:url(https://res.cloudinary.com/dkt1t22qc/image/upload/v1742348950/Prestataires_Documents/fopt5esl9cgvlcawz1z4.jpg)">
     <div class="h-screen flex justify-center items-center backdrop-brightness-50">
         <div class="flex flex-col items-center space-y-8">
-            <div>
-                <img src="https://res.cloudinary.com/dkt1t22qc/image/upload/v1742348949/Prestataires_Documents/smj7n1bdlpjsfsotwpco.png"
-                    alt="DevConnect Logo" class="cursor-pointer" />
-            </div>
+        
             <div class="rounded-[20px] w-80 p-8 bg-[#310D84]" style="box-shadow:-6px 3px 20px 4px #0000007d">
                 <h1 class="text-white text-3xl font-bold mb-4">Register</h1>
                 <div class="space-y-4">
