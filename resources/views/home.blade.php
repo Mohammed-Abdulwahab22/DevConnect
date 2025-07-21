@@ -1,5 +1,5 @@
 <x-layout>
-     <div class="backdrop-brightness-50 min-h-screen py-8">
+     <div class="min-h-screen py-8">
      
 
         <main class="container mx-auto px-4">
