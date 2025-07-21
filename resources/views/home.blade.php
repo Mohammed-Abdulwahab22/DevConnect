@@ -1,27 +1,6 @@
 <x-layout>
      <div class="backdrop-brightness-50 min-h-screen py-8">
-        <header class="flex justify-between items-center px-8 py-4 mb-8">
-            <div class="flex items-center space-x-4">
-                <div class="flex items-center space-x-3 ">
-                    <div class="relative w-12 h-12">
-                        <div class="absolute w-8 h-8 rounded-lg transform rotate-45 bg-gradient-to-br from-[#7336FF] to-[#3269FF]"
-                            style="box-shadow:-4px 2px 10px 2px rgba(0, 0, 0, 0.6);"></div>
-                        <div class="absolute w-8 h-8 rounded-lg transform -rotate-30 top-3 left-3 bg-[#310D84] border-2 border-[#7337FF]"
-                            style="box-shadow:-4px 2px 10px 2px rgba(0, 0, 0, 0.6);"></div>
-                    </div>
-                    <span class="text-4xl font-extrabold text-white">DevConnect</span>
-                </div>
-
-            </div>
-            <nav>
-                <ul class="flex space-x-6 text-white text-lg">
-                    <li><a href="#" class="hover:text-[#228CE0] transition duration-300">Home</a></li>
-                    <li><a href="#" class="hover:text-[#228CE0] transition duration-300">Profile</a></li>
-                    <li><a href="#" class="hover:text-[#228CE0] transition duration-300">Settings</a></li>
-                    <li><a href="#" class="hover:text-[#228CE0] transition duration-300">Logout</a></li>
-                </ul>
-            </nav>
-        </header>
+     
 
         <main class="container mx-auto px-4">
             <section class="mb-8">
