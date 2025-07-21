@@ -3,7 +3,7 @@
     <body class="bg-cover bg-gradient-to-br from-[#7337FF] via-[#000000] to-[#0C7EA8] min-h-screen"
         style="background-image:url(https://res.cloudinary.com/dkt1t22qc/image/upload/v1742348950/Prestataires_Documents/fopt5esl9cgvlcawz1z4.jpg)">
 
-        <div class="backdrop-brightness-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+        <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
             <main class="container mx-auto max-w-3xl space-y-8">
                 <h1 class="text-white text-4xl font-bold mb-6 text-center">Account Settings</h1>
 
