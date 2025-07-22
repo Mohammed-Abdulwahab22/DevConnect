@@ -44,7 +44,16 @@
             <li><x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link></li>
             <li><x-nav-link href="/profile" :active="request()->is('profile')">Profile</x-nav-link></li>
             <li><x-nav-link href="/settings" :active="request()->is('settings')">Settings</x-nav-link></li>
-            <li><x-nav-link href="/" :active="request()->is('/')">Logout</x-nav-link></li>
+            {{-- <li><x-nav-link href="/" :active="request()->is('/')">Logout</x-nav-link></li> --}}
+            <li>
+                <form method="POST" action="{{ route('logout') }}" class="inline">
+                    @csrf
+                    <button type="submit" class="your-tailwind-classes-here">
+                        Logout
+                    </button>
+                </form>
+            </li>
+
         </ul>
     </nav>
 </header>
