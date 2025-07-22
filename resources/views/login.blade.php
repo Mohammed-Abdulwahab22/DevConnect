@@ -43,7 +43,8 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('login') }}">
+                    {{-- IMPORTANT: Changed action to point to the POST /login route --}}
+                    <form method="POST" action="{{ url('/login') }}">
                         @csrf {{-- CSRF token for security --}}
                         <div class="space-y-4">
                             <input type="email" name="email" placeholder="Email address" value="{{ old('email') }}"

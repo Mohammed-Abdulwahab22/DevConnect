@@ -2,15 +2,21 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str; // Import the Str facade for UUID generation
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
+
+    // Indicate that the primary key is not auto-incrementing
+    public $incrementing = false;
+
+    // Indicate that the primary key is a UUID string
+    protected $keyType = 'string';
 
     /**
      * The attributes that are mass assignable.
@@ -44,5 +50,23 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * The "booting" method of the model.
+     *
+     * This is where we will set up our UUID generation logic.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Listen for the 'creating' event on the User model
+        static::creating(function ($model) {
+            // If the 'id' is not already set, generate a UUID
+            if (empty($model->{$model->getKeyName()})) {
+                $model->{$model->getKeyName()} = (string) Str::uuid();
+            }
+        });
     }
 }
