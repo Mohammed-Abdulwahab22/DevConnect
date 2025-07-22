@@ -42,8 +42,9 @@
                         </button>
                     </div>
                     <div class="text-gray-300 text-center">
-                        Don&#x27;t have an account?<span class="text-[#228CE0] cursor-pointer">
-                            Sign up</span>
+                        Don&#x27;t have an account?<x-nav-link href="/register" :active="request()->is('register')"
+                        class="text-[#228CE0] cursor-pointer">
+                            Sign up</x-nav-link>
                     </div>
                 </div>
             </div>

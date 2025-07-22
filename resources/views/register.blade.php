@@ -51,8 +51,9 @@
                     </button>
                 </div>
                 <div class="text-gray-300 text-center">
-                    Already have an account?<span class="text-[#228CE0] cursor-pointer">
-                        Sign In</span>
+                    Already have an account?<x-nav-link href="/login" :active="request()->is('login')"
+                    class="text-[#228CE0] cursor-pointer">
+                        Sign In</x-nav-link>
                 </div>
             </div>
         </div>
