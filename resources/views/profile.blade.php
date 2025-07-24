@@ -4,11 +4,14 @@
             class="rounded-[20px] p-8 bg-[#310D84] text-white flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 mb-8"
             style="box-shadow:-6px 3px 20px 4px #0000007d">
             <div class="flex-shrink-0">
-                <img src="https://via.placeholder.com/120/8777BA/FFFFFF?text=JD" alt="User Avatar"
+
+                <img src="{{ auth()->user()->profile_image ? asset('storage/' . auth()->user()->profile_image) : 'https://via.placeholder.com/120/8777BA/FFFFFF?text=' . substr(auth()->user()->name, 0, 1) }}"
+                    alt="{{ auth()->user()->name }}'s Avatar"
                     class="w-32 h-32 rounded-full border-4 border-[#7337FF] object-cover shadow-lg">
             </div>
+
             <div class="text-center md:text-left flex-grow">
-                <h2 class="text-4xl font-bold mb-2">John Doe</h2>
+                <h2 class="text-4xl font-bold mb-2">{{ auth()->user()->name }}</h2>
                 <p class="text-gray-300 text-lg mb-2">Full-stack Developer @ DevConnect HQ</p>
                 <p class="text-gray-400 text-sm italic">"Building the future, one line of code at a time."</p>
                 <div class="flex flex-wrap justify-center md:justify-start space-x-4 mt-4 text-sm">
@@ -69,11 +72,8 @@
 
         <section class="rounded-[20px] p-8 bg-[#310D84] text-white mb-8" style="box-shadow:-6px 3px 20px 4px #0000007d">
             <h3 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2">About Me</h3>
-            <p class="text-gray-300 leading-relaxed">
-                Passionate full-stack developer with over 7 years of experience in building scalable web applications.
-                Specializing in modern JavaScript frameworks, backend APIs, and cloud infrastructure.
-                Always eager to learn new technologies and contribute to open-source projects.
-                Outside of coding, I enjoy exploring new hiking trails and playing chess.
+            <p class="text-gray-400 text-sm italic">
+                "{{ auth()->user()->about_me ? Str::limit(auth()->user()->about_me, 70) : 'No bio available.' }}"
             </p>
             <h3 class="text-2xl font-bold mt-6 mb-4 border-b border-gray-700 pb-2">Skills</h3>
             <div class="flex flex-wrap gap-3">
