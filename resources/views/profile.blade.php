@@ -76,7 +76,7 @@
         <section class="rounded-[20px] p-8 bg-[#310D84] text-white mb-8" style="box-shadow:-6px 3px 20px 4px #0000007d">
             <h3 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2">About Me</h3>
             <p class="text-gray-400 text-sm italic">
-                "{{ auth()->user()->about_me ? Str::limit(auth()->user()->about_me, 70) : 'No bio available.' }}"
+                "{{ auth()->user()->about_me ? Str::limit(auth()->user()->about_me, 350) : 'No bio available.' }}"
             </p>
             <h3 class="text-2xl font-bold mt-6 mb-4 border-b border-gray-700 pb-2">Skills</h3>
            <div class="flex flex-wrap gap-3">
