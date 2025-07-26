@@ -31,6 +31,7 @@ class User extends Authenticatable
         'about_me',
         'occupation',
         'location',
+        'skills',
     ];
 
     /**
