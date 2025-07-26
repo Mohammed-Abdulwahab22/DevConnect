@@ -12,17 +12,24 @@
 
             <div class="text-center md:text-left flex-grow">
                 <h2 class="text-4xl font-bold mb-2">{{ auth()->user()->name }}</h2>
-                <p class="text-gray-300 text-lg mb-2">Full-stack Developer @ DevConnect HQ</p>
+                @if (auth()->user()->occupation)
+                    <p class="text-gray-300 text-lg mb-2">{{ auth()->user()->occupation }}</p>
+                @else
+                    <p class="text-gray-300 text-lg mb-2">No occupation specified</p>
+                @endif
                 {{-- <p class="text-gray-400 text-sm italic">"Building the future, one line of code at a time."</p> --}}
                 <div class="flex flex-wrap justify-center md:justify-start space-x-4 mt-4 text-sm">
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-1 text-[#228CE0]" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        London, UK
+                    @if (auth()->user()->location)
+                        <span class="flex items-center">
+                            <svg class="w-4 h-4 mr-1 text-[#228CE0]" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            {{ auth()->user()->location }}
+                        </span>
+                    @endif
                     </span>
                     <span class="flex items-center">
                         <svg class="w-4 h-4 mr-1 text-[#228CE0]" fill="currentColor" viewBox="0 0 20 20"
@@ -32,12 +39,12 @@
                                 d="M12.293 11.293a1 1 0 00.001-1.415L10 7.586 7.707 9.879a1 1 0 001.414 1.414L10 10.414l.879.879a1 1 0 001.414 0z">
                             </path>
                         </svg>
-                        john.doe@devconnect.com
-                    </span>
+
+                        {{ auth()->user()->email }} </span>
                 </div>
             </div>
             <div class="flex flex-col space-y-3">
-                <button
+                <button onclick="window.location.href='/settings'"
                     class="h-10 px-6 cursor-pointer text-white rounded-md bg-gradient-to-br from-[#7336FF] to-[#3269FF] shadow-md shadow-blue-950 font-semibold text-sm">
                     Edit Profile
                 </button>
@@ -50,21 +57,16 @@
 
         ---
 
-        <section class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
             <div class="rounded-[20px] p-6 bg-[#310D84] text-white text-center"
                 style="box-shadow:-6px 3px 20px 4px #0000007d">
-                <p class="text-5xl font-bold text-[#228CE0]">150</p>
+                <p class="text-5xl font-bold text-[#228CE0]">{{ auth()->user()->posts->count() }}</p>
                 <p class="text-gray-300 mt-2">Posts Created</p>
             </div>
             <div class="rounded-[20px] p-6 bg-[#310D84] text-white text-center"
                 style="box-shadow:-6px 3px 20px 4px #0000007d">
-                <p class="text-5xl font-bold text-[#7337FF]">8K</p>
+                <p class="text-5xl font-bold text-[#7337FF]">{{ auth()->user()->posts->sum('upvotes') }}</p>
                 <p class="text-gray-300 mt-2">Total Likes</p>
-            </div>
-            <div class="rounded-[20px] p-6 bg-[#310D84] text-white text-center"
-                style="box-shadow:-6px 3px 20px 4px #0000007d">
-                <p class="text-5xl font-bold text-[#0C7EA8]">23</p>
-                <p class="text-gray-300 mt-2">Projects Contributed</p>
             </div>
         </section>
 
