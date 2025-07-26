@@ -79,21 +79,15 @@
                 "{{ auth()->user()->about_me ? Str::limit(auth()->user()->about_me, 70) : 'No bio available.' }}"
             </p>
             <h3 class="text-2xl font-bold mt-6 mb-4 border-b border-gray-700 pb-2">Skills</h3>
-            <div class="flex flex-wrap gap-3">
-                <span
-                    class="bg-[#8777BA] text-white px-4 py-1 rounded-full text-sm shadow-md shadow-blue-950">JavaScript</span>
-                <span
-                    class="bg-[#8777BA] text-white px-4 py-1 rounded-full text-sm shadow-md shadow-blue-950">React</span>
-                <span
-                    class="bg-[#8777BA] text-white px-4 py-1 rounded-full text-sm shadow-md shadow-blue-950">Node.js</span>
-                <span
-                    class="bg-[#8777BA] text-white px-4 py-1 rounded-full text-sm shadow-md shadow-blue-950">Python</span>
-                <span
-                    class="bg-[#8777BA] text-white px-4 py-1 rounded-full text-sm shadow-md shadow-blue-950">AWS</span>
-                <span
-                    class="bg-[#8777BA] text-white px-4 py-1 rounded-full text-sm shadow-md shadow-blue-950">Docker</span>
-                <span
-                    class="bg-[#8777BA] text-white px-4 py-1 rounded-full text-sm shadow-md shadow-blue-950">SQL</span>
+           <div class="flex flex-wrap gap-3">
+                @forelse (auth()->user()->skills ?? [] as $skill)
+                    <span
+                        class="bg-[#8777BA] text-white px-4 py-1 rounded-full text-sm shadow-md shadow-blue-950">
+                        {{ $skill }}
+                    </span>
+                @empty
+                    <p class="text-gray-400 text-sm">No skills added yet.</p>
+                @endforelse
             </div>
         </section>
 
