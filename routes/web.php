@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ProfileSettingsController; 
+use App\Http\Controllers\ProfileSettingsController;
 use App\Http\Controllers\PostController;
 
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
@@ -15,9 +15,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', function () {
-        return view('home');
-    })->name('home');
+    Route::get('/home', [PostController::class, 'index'])->name('home');
 
     Route::get('/profile', function () {
         return view('profile');
@@ -34,9 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile-settings/password', [ProfileSettingsController::class, 'updatePassword'])->name('profile.updatePassword');
     Route::delete('/profile-settings/delete-account', [ProfileSettingsController::class, 'deleteAccount'])->name('profile.deleteAccount');
 
-    Route::post('/home/posts', [PostController::class, 'store'])->name('posts.store');
-    Route::get('/home/posts', [PostController::class, 'index'])->name('posts.index');
-    Route::get('/home/posts/{post}', [PostController::class, 'show'])->name('posts.show');
-    Route::put('/home/posts/{post}', [PostController::class, 'update'])->name('posts.update');
-    Route::delete('/home/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+    Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
