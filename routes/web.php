@@ -31,4 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile-settings/notifications', [ProfileSettingsController::class, 'updateNotifications'])->name('profile.updateNotifications');
     Route::put('/profile-settings/password', [ProfileSettingsController::class, 'updatePassword'])->name('profile.updatePassword');
     Route::delete('/profile-settings/delete-account', [ProfileSettingsController::class, 'deleteAccount'])->name('profile.deleteAccount');
+
+    Route::post('/home/posts', [PostController::class, 'store'])->name('posts.store');
+    Route::get('/home/posts', [PostController::class, 'index'])->name('posts.index');
+    Route::get('/home/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+    Route::put('/home/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('/home/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 });
