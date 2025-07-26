@@ -13,7 +13,7 @@
             <div class="text-center md:text-left flex-grow">
                 <h2 class="text-4xl font-bold mb-2">{{ auth()->user()->name }}</h2>
                 <p class="text-gray-300 text-lg mb-2">Full-stack Developer @ DevConnect HQ</p>
-                <p class="text-gray-400 text-sm italic">"Building the future, one line of code at a time."</p>
+                {{-- <p class="text-gray-400 text-sm italic">"Building the future, one line of code at a time."</p> --}}
                 <div class="flex flex-wrap justify-center md:justify-start space-x-4 mt-4 text-sm">
                     <span class="flex items-center">
                         <svg class="w-4 h-4 mr-1 text-[#228CE0]" fill="currentColor" viewBox="0 0 20 20"
